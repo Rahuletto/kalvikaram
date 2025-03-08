@@ -8,15 +8,12 @@ export const saveThread = (messages: ChatMessage[], threadId: string) => {
     const existingThreadIndex = threads.findIndex((t: Thread) => t.id === threadId)
 
     if (existingThreadIndex !== -1) {
-        // Update existing thread
         threads[existingThreadIndex].messages = messages
         threads[existingThreadIndex].timestamp = new Date().toISOString()
-        // Update title only if it's the first message
         if (messages.length === 1) {
             threads[existingThreadIndex].title = messages[0].content.slice(0, 50)
         }
     } else {
-        // Create new thread
         const thread = {
             id: threadId,
             title: messages[0]?.content.slice(0, 50) || 'New Chat',
