@@ -41,7 +41,7 @@ export default function Header() {
         >
           <option value="english">English</option>
           <option value="tamil">தமிழ்</option>
-          <option value="romanized">Tamizh Romamized</option>
+          <option value="romanized">Tamil {"(romanized)"}</option>
         </select>
         <ThemeToggle />
       </div>

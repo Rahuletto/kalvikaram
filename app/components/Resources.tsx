@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { resources } from '@/utils/getResources'
 import { BsFileEarmarkPdf } from 'react-icons/bs'
 import { TbLayoutSidebarRight } from 'react-icons/tb'
@@ -13,6 +13,20 @@ export default function Resources() {
   const handleOpenPDF = (filename: string) => {
     window.open(`/resources/${filename}`, '_blank')
   }
+
+  const [language, setLanguage] = useState('tamil')
+  
+    useEffect(() => {
+      const savedLanguage = localStorage.getItem('language')
+      if (savedLanguage) {
+        setLanguage(savedLanguage)
+      }
+      const handleLanguageChange = () => {
+        setLanguage(localStorage.getItem('language') || 'english')
+      }
+      window.addEventListener('languageChange', handleLanguageChange)
+      return () => window.removeEventListener('languageChange', handleLanguageChange)
+    }, [])
 
   return (
     <AnimatePresence>
@@ -30,7 +44,11 @@ export default function Resources() {
         >
           <div className='h-full w-full md:rounded-xl p-4 md:p-3 md:px-5'>
             <div className='flex items-center justify-between'>
-              <h2 className='font-medium text-sm text-black/60 dark:text-white/60'>Resources</h2>
+              <h2 className='font-medium text-sm text-black/60 dark:text-white/60'>
+                {
+                  language === "tamil" ? "புத்தகங்கள்" : "Resources"
+                }
+              </h2>
               <button onClick={() => setIsOpen(false)}>
                 <TbLayoutSidebarRight />
               </button>

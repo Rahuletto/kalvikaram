@@ -13,7 +13,14 @@ export default function History() {
     const [threads, setThreads] = useState<Thread[]>([])
     const router = useRouter()
 
+    const [language, setLanguage] = useState('tamil')
+
     useEffect(() => {
+        const savedLanguage = localStorage.getItem('language')
+        if (savedLanguage) {
+            setLanguage(savedLanguage)
+        }
+
         const storedThreads = localStorage.getItem('chatThreads')
         if (storedThreads) {
             setThreads(JSON.parse(storedThreads))
@@ -53,7 +60,11 @@ export default function History() {
                 >
                     <div className="h-full w-full md:rounded-xl p-4 md:p-3 md:px-5">
                         <div className="flex items-center justify-between">
-                            <h2 className="font-medium text-sm text-black/60 dark:text-white/60">Chat History</h2>
+                            <h2 className="font-medium text-sm text-black/60 dark:text-white/60">
+                                {
+                                    language === "tamil" ? "உரையாடல்கள்" : "History"
+                                }
+                            </h2>
                             <div className='flex items-center gap-2'>
                                 <Link href="/" className='flex items-center gap-2 p-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-150 text-left'>
                                     <FaPlus />
@@ -79,7 +90,9 @@ export default function History() {
                                 ))
                             ) : (
                                 <p className="text-center text-black/60 dark:text-white/60 text-sm">
-                                    No chat history yet.
+                                   {
+                                    language === "tamil" ? "இதுவரை உரையாடல்கள் இல்லை." : "No chat history yet."
+                                }
                                 </p>
                             )}
                         </div>
