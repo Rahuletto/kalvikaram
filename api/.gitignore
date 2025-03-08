@@ -1,0 +1,13 @@
+# Ignore environment variable files
+.env*
+
+# Ignore virtual environment directory
+/venv
+
+# Ignore FAISS index files
+faiss_index.bin
+faiss_index.binlock
+
+# Ignore response cache file
+response_cache.json
+/__pycache__
