@@ -3,10 +3,10 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
 import { ChatMessage } from '@/types/Chats'
-import Header from '@/app/components/Header'
-import History from '@/app/components/History'
-import ChatView from '@/app/components/ChatView'
-import Resources from '@/app/components/Resources'
+import Header from '@/components/Header'
+import History from '@/components/History'
+import ChatView from '@/components/ChatView'
+import Resources from '@/components/Resources'
 
 export type Thread = {
     id: string
