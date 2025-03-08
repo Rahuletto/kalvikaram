@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@100..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,4 +16,12 @@ button:disabled {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.sans {
+  font-family: 'General Sans', sans-serif;
+}
+
+.tamil {
+  font-family: 'Noto Sans Tamil', sans-serif;
 }
