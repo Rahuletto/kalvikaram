@@ -1,5 +1,6 @@
 # Kalvikaram
-**Kalvikaram** is an innovative educational platform built by a multidisciplinary team of software engineers, AI researchers, and education specialists. Our collective passion is to bridge the gap in quality educational resources for Tamil medium students.
+**Kalvikaram** is an AI-based educational tool built to help Tamil medium students understand their study materials more effectively. It provides clear explanations, summaries, and translations to make learning easier and more accessible.
+
 
 ![hero](/public/images/hero.png)
 
