@@ -22,7 +22,6 @@ try:
 except FileNotFoundError:
     cache = {}
 
-# Request model with threadId included
 class QueryRequest(BaseModel):
     query: str
     language: str = "english" 
