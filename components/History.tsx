@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { TbLayoutSidebarRight } from 'react-icons/tb'
 import { FaHistory } from 'react-icons/fa'
 import { useRouter } from 'next/navigation'
-import { Thread } from '../chat/[threadId]/page'
+import { Thread } from '../app/chat/[threadId]/page'
 import Link from 'next/link'
 import { FaPlus } from 'react-icons/fa6'
 
@@ -20,6 +20,7 @@ export default function History() {
         if (savedLanguage) {
             setLanguage(savedLanguage)
         }
+        
 
         const storedThreads = localStorage.getItem('chatThreads')
         if (storedThreads) {
@@ -35,7 +36,13 @@ export default function History() {
 
         window.addEventListener('threadSaved', handleStorageChange)
 
+        const handleLanguageChange = () => {
+        setLanguage(localStorage.getItem('language') || 'english')
+      }
+      window.addEventListener('languageChange', handleLanguageChange)
+
         return () => {
+            window.removeEventListener('languageChange', handleLanguageChange)
             window.removeEventListener('threadSaved', handleStorageChange)
         }
     }, [])
@@ -66,7 +73,7 @@ export default function History() {
                                 }
                             </h2>
                             <div className='flex items-center gap-2'>
-                                <Link href="/" className='flex items-center gap-2 p-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-150 text-left'>
+                                <Link href="/chat" className='flex items-center gap-2 p-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-150 text-left'>
                                     <FaPlus />
                                 </Link>
                                 <button onClick={() => setIsOpen(false)}>
