@@ -51,3 +51,5 @@ faiss_index.binlock
 # Ignore response cache file
 response_cache.json
 /__pycache__
+
+.DS_Store
